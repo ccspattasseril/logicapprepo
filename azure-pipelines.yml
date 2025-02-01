@@ -8,7 +8,7 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'logicapp'
-    azureResourceManagerConnection: 'ccspattasseril'
+    azureResourceManagerConnection: 'logicsecret'
     subscriptionId: 'c129c54d-009d-464a-971c-96cb6961d560'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'logicapprg'
