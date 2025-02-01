@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'logicapprg'
+    azureResourceManagerConnection: 'logicsecret'
+    subscriptionId: 'c129c54d-009d-464a-971c-96cb6961d560'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'logicapprg'
+    location: 'Canada Central'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(Build.SourcesDirectory)/logic-app-template.json'
+    csmParametersFile: '$(Build.SourcesDirectory)/logic-app-parameters.json'
+    deploymentMode: 'Incremental'
